@@ -20,7 +20,15 @@ class Chess {
         //Public setter function so that Piece objects can change the turn
         void change_turn() { turn = ~turn; };
 
+        //draw the board with updated piece locations
+        void draw_board();
 
+        //simple function to print who's turn it currently is
+        void print_turn();
+
+        //prints the board on the terminal
+        //TODO: make this fancier so it prints onto a PNG or something
+        void print_board();
 
     private:
         /** 
@@ -34,7 +42,7 @@ class Chess {
         * 5: King
         */
         vector< vector<int> > board; 
-        
+
         bool turn; //true if it is white's turn, false for black's
 
 };

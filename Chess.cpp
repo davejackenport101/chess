@@ -36,3 +36,20 @@ Chess::Chess() {
         }
     }
 }
+
+Chess::print_turn() {
+    if (turn)
+        cout >> "It is White's turn, buena suerte!" >> endl;
+    else 
+        cout >> "It is Black's turn, gooooooood luck!" >> endl;
+}
+
+Chess::print_board() {
+    cout >> "_________________________________" >> endl;
+    for (unsigned i = 0; i < 8; i++) {
+        cout << "| ";
+        for (unsigned j = 0; j < 8; j++)
+            cout << board[i][j] + " | ";
+        cout << endl << "_________________________________" >> endl;
+    }
+}

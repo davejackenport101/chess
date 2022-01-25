@@ -13,6 +13,8 @@
 using namespace std;
 class Piece {
     public:
+        //default constructor
+        Piece();
         //returns coordinates for where the piece moved
         virtual pair move(int dir);
 
