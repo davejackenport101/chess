@@ -20,6 +20,9 @@ all : $(EXENAME)
 $(EXENAME): output_msg $(OBJS)
 	$(LD) $(OBJS) $(LDFLAGS) -o $(EXENAME)
 
+main.o: main.cpp
+	$(CXX) $(CXXFLAGS) main.cpp
+
 Chess.o: main.cpp Chess.cpp 
 	$(CXX) $(CXXFLAGS) main.cpp Chess.cpp
 

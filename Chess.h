@@ -32,14 +32,14 @@ class Chess {
         /** 
         * holds whether or not a piece exists at that spot. If piece does not exist then holds 0
         * If a piece does exist then the value at that square indicates which piece it is
-        * 9: pawn
-        * 1: bishop
-        * 2: knight
-        * 3: rook
-        * 4: Queen
-        * 5: King
+        * p: pawn
+        * b: bishop
+        * k: knight
+        * r: rook
+        * Q: Queen
+        * K: King
         */
-        std::vector< std::vector<int> > board; 
+        std::vector< std::vector<char> > board; 
 
         bool turn; //true if it is white's turn, false for black's
 
