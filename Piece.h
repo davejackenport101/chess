@@ -16,7 +16,7 @@ class Piece {
         //default constructor
         Piece();
         //returns coordinates for where the piece moved
-        virtual pair move(int dir);
+        //virtual pair<int, int> move(int dir);
 
 
 

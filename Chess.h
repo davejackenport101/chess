@@ -8,9 +8,10 @@
  * @copyright Copyright (c) 2022
  */
 #pragma once
+#include <cmath>
 #include <vector>
+#include <iostream>
 #include "Piece.h"
-using namespace std;
 
 class Chess {
     public:
@@ -18,10 +19,7 @@ class Chess {
         Chess();
 
         //Public setter function so that Piece objects can change the turn
-        void change_turn() { turn = ~turn; };
-
-        //draw the board with updated piece locations
-        void draw_board();
+        void change_turn() { turn = !turn; };
 
         //simple function to print who's turn it currently is
         void print_turn();
@@ -32,16 +30,16 @@ class Chess {
 
     private:
         /** 
-        * holds whether or not a piece exists at that spot. If piece does not exist then holds -1
+        * holds whether or not a piece exists at that spot. If piece does not exist then holds 0
         * If a piece does exist then the value at that square indicates which piece it is
-        * 0: pawn
+        * 9: pawn
         * 1: bishop
         * 2: knight
         * 3: rook
         * 4: Queen
         * 5: King
         */
-        vector< vector<int> > board; 
+        std::vector< std::vector<int> > board; 
 
         bool turn; //true if it is white's turn, false for black's
 

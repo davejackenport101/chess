@@ -9,6 +9,10 @@
  */
 
 #include "Chess.h"
+#include <vector>
+#include <iostream>
+#include <cmath>
+
 using namespace std;
 
 //Initializes the chess board to start a game
@@ -16,15 +20,16 @@ Chess::Chess() {
     turn = true;
 
     //Place pieces on the board to initialize all squares as either empty or with correct piece
-    for (unsigned i = 0); i < 8; i++) {
-        board.push_back(vector<int>);
+    for (unsigned i = 0; i < 8; i++) {
+        vector<int> row;
+        board.push_back(row);
         for (unsigned j = 0; j < 8; j++) {
             //pawns
             if (i == 1 || i == 6) {
-                board[i].push_back(0);
+                board[i].push_back(9);
             }
             //specialty pieces
-            if (i == 0 || i == 7) {
+            else if (i == 0 || i == 7) {
                 if (j == 0 || j == 7) board[i].push_back(3);
                 if (j == 1 || j == 6) board[i].push_back(2);
                 if (j == 2 || j == 5) board[i].push_back(1);
@@ -32,24 +37,25 @@ Chess::Chess() {
                 if (j == 4) board[i].push_back(4);
             }
             //middle of the board
-            else board.push_back(-1);
+            else board[i].push_back(0);
         }
     }
 }
 
-Chess::print_turn() {
+void Chess::print_turn() {
     if (turn)
-        cout >> "It is White's turn, buena suerte!" >> endl;
+        cout << "It is White's turn, buena suerte!" << endl;
     else 
-        cout >> "It is Black's turn, gooooooood luck!" >> endl;
+        cout << "It is Black's turn, gooooooood luck!" << endl;
 }
 
-Chess::print_board() {
-    cout >> "_________________________________" >> endl;
+void Chess::print_board() {
+    cout << "_________________________________" << endl;
     for (unsigned i = 0; i < 8; i++) {
         cout << "| ";
         for (unsigned j = 0; j < 8; j++)
-            cout << board[i][j] + " | ";
-        cout << endl << "_________________________________" >> endl;
+            cout << board[i][j] << " | ";
+        cout << endl << "_________________________________" << endl;
     }
+    cout << endl;
 }

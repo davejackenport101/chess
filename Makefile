@@ -1,5 +1,5 @@
 EXENAME = Chess
-OBJS = Chess.o Piece.o
+OBJS = Chess.o Piece.o main.o
 CXX = clang++
 CXXFLAGS = $(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic
 LD = clang++
@@ -13,21 +13,18 @@ ccend=$(shell echo -e "\033[0m")
 IS_CORRECT_CLANG=$(shell clang -v 2>&1 | grep "version 6")
 
 
-.PHONY: all test clean output_msg
+.PHONY: all clean output_msg
 
 all : $(EXENAME)
 
 $(EXENAME): output_msg $(OBJS)
 	$(LD) $(OBJS) $(LDFLAGS) -o $(EXENAME)
 
-parksGraph.o: main.cpp parksGraph.cpp 
-	$(CXX) $(CXXFLAGS) main.cpp parksGraph.cpp
+Chess.o: main.cpp Chess.cpp 
+	$(CXX) $(CXXFLAGS) main.cpp Chess.cpp
 
-test: output_msg tests.o parksGraph.o
-	$(LD) tests.o parksGraph.o $(LDFLAGS) -o test
-
-tests.o: tests/tests.cpp tests/catch.hpp
-	$(CXX) $(CXXFLAGS) tests/tests.cpp
+Piece.o: main.cpp Piece.cpp
+	$(CXX) $(CXXFLAGS) main.cpp Piece.cpp
 
 clean:
 	-rm -f *.o $(EXENAME) test

@@ -7,7 +7,16 @@
  * 
  * @copyright Copyright (c) 2022 lmao this line makes it seem super official
  */
+#include <iostream>
+#include "Chess.h"
+#include "Piece.h"
 
-void main() {
-    return;
+using namespace std;
+
+int main() {
+    Chess myGame;
+    myGame.print_board();
+    myGame.print_turn();
+    
+    return 0;
 }
